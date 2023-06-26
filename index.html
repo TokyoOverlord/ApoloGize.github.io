@@ -1,1 +1,38 @@
-https://ApoloGize.github.io/index.html?id=572754&url=https://link-hub.net/572754/key1
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Check Point</title>
+    <script src="https://publisher.linkvertise.com/cdn/linkvertise.js"></script>
+    <script>
+        function redirectToLinkvertise() {
+            linkvertise(572754, { whitelist: [], blacklist: [""] }, function (result) {
+                if (result.success) {
+                    var linkUrl = result.link.url;
+                    var targetUrl = "https://your-website.com/checkpoint.html";
+
+                    window.location.href = linkUrl + "?target=" + encodeURIComponent(targetUrl);
+                } else {
+                    alert("An error occurred while generating the Linkvertise link.");
+                }
+            });
+        }
+    </script>
+</head>
+
+<body onload="redirectToLinkvertise()">
+    <h1>Please wait...</h1>
+
+    <script>
+        function loadRedirectPage() {
+            var targetUrl = decodeURIComponent(window.location.search.replace("?target=", ""));
+            setTimeout(function () {
+                window.location.href = targetUrl;
+            }, 3000);
+        }
+
+        loadRedirectPage();
+    </script>
+</body>
+
+</html>
