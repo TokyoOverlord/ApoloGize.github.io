@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Check Point</title>
+    <script>
+        function redirectToNextPage() {
+            var targetUrl = "https://your-website.com/key.html";
+            window.location.href = targetUrl;
+        }
+
+        function countdownTimer() {
+            var countdown = 3; // 3 seconds
+            var timer = setInterval(function () {
+                countdown--;
+                if (countdown <= 0) {
+                    clearInterval(timer);
+                    redirectToNextPage();
+                }
+                document.getElementById("countdown").innerText = countdown;
+            }, 1000);
+        }
+
+        countdownTimer();
+    </script>
+</head>
+
+<body>
+    <h1>Check Point</h1>
+    <p>Please wait <span id="countdown">3</span> seconds...</p>
+</body>
+
+</html>
