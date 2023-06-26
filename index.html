@@ -1,56 +1,10 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <title>Check Point</title>
-    <script>
-        function loadScript(url, callback) {
-            var script = document.createElement("script");
-            script.type = "text/javascript";
-            script.onload = callback;
-            script.src = url;
-            document.head.appendChild(script);
-        }
-
-        function redirectToLinkvertise(round) {
-            if (round === 1) {
-                // Wait for 3 seconds
-                setTimeout(function () {
-                    redirectToLinkvertise(2);
-                }, 3000);
-            } else if (round === 2) {
-                // Load Linkvertise script
-                loadScript("https://publisher.linkvertise.com/cdn/linkvertise.js", function () {
-                    // Redirect to Linkvertise
-                    linkvertise(572754, { whitelist: [], blacklist: [""] }, function (result) {
-                        if (result.success) {
-                            var linkUrl = result.link.url;
-                            redirectToLinkvertise(3, linkUrl);
-                        } else {
-                            alert("An error occurred while generating the Linkvertise link.");
-                        }
-                    });
-                });
-            } else if (round === 3) {
-                // Redirect back to your website
-                setTimeout(function () {
-                    redirectToTargetPage();
-                }, 3000);
-            }
-        }
-
-        function redirectToTargetPage() {
-            var targetUrl = "https://pastebin.com/raw/etRR4dDi";
-            window.location.href = targetUrl;
-        }
-
-        // Start the redirect process
-        redirectToLinkvertise(1);
-    </script>
-</head>
-
-<body>
-    <h1>Please wait</h1>
-</body>
-
-</html>
+    <head>
+        <script src="https://publisher.linkvertise.com/cdn/linkvertise.js"></script><script>linkvertise(572754, {whitelist: [], blacklist: [""]});</script>
+    </head>
+    <body>
+        <p>This <a href="https://www.youtube.com/watch?v=uo2jmlxQJPI">Youtube</a></p>
+        <p>This <a href="secon.html"> Second page</a></p>
+    </body>   
+        </html>
