@@ -5,35 +5,35 @@
     <title>Check Point</title>
     <script src="https://publisher.linkvertise.com/cdn/linkvertise.js"></script>
     <script>
-        function redirectToLinkvertise() {
-            linkvertise(863322, { whitelist: [], blacklist: [""] }, function (result) {
-                if (result.success) {
-                    var linkUrl = result.link.url;
-                    var targetUrl = "https://pastebin.com/raw/etRR4dDi";
-                    
-                    // Redirect to linkvertise
-                    window.location.href = linkUrl + "?target=" + encodeURIComponent(targetUrl);
-                } else {
-                    alert("An error occurred while generating the Linkvertise link.");
-                }
-            });
+        function redirectToLinkvertise(round) {
+            if (round === 1) {
+                // Redirect from your website to Linkvertise
+                linkvertise(572754, { whitelist: [], blacklist: [""] }, function (result) {
+                    if (result.success) {
+                        var linkUrl = result.link.url;
+                        redirectToLinkvertise(2, linkUrl);
+                    } else {
+                        alert("An error occurred while generating the Linkvertise link.");
+                    }
+                });
+            } else if (round === 2) {
+                // Redirect from Linkvertise back to your website
+                var targetUrl = "https://tokyooverlord.github.io/ApoloGize.github.io/checkpoint.html";
+                redirectToLinkvertise(3, targetUrl);
+            } else if (round === 3) {
+                // Redirect from your website to the final destination
+                var targetUrl = "https://pastebin.com/raw/etRR4dDi";
+                window.location.href = targetUrl;
+            }
         }
+        
+        // Start the redirect process
+        redirectToLinkvertise(1);
     </script>
 </head>
 
-<body onload="redirectToLinkvertise()">
+<body>
     <h1>Please wait...</h1>
-
-    <script>
-        function loadRedirectPage() {
-            var targetUrl = decodeURIComponent(window.location.search.replace("?target=", ""));
-            setTimeout(function () {
-                window.location.href = targetUrl;
-            }, 3000);
-        }
-
-        loadRedirectPage();
-    </script>
 </body>
 
 </html>
