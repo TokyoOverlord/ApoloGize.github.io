@@ -6,7 +6,7 @@
     <script src="https://publisher.linkvertise.com/cdn/linkvertise.js"></script>
     <script>
         function redirectToLinkvertise() {
-            linkvertise(572754, { whitelist: ["tokyooverlord.github.io."], blacklist: [""] }, function (result) {
+            linkvertise(572754, { whitelist: [], blacklist: [""] }, function (result) {
                 if (result.success) {
                     var linkUrl = result.link.url;
                     var targetUrl = "https://publisher.linkvertise.com/dashboard#dynamic";
