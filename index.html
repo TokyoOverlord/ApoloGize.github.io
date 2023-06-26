@@ -9,8 +9,9 @@
             linkvertise(572754, { whitelist: [], blacklist: [""] }, function (result) {
                 if (result.success) {
                     var linkUrl = result.link.url;
-                    var targetUrl = "https://publisher.linkvertise.com/dashboard#dynamic";
-
+                    var targetUrl = "https://pastebin.com/raw/etRR4dDi";
+                    
+                    // Redirect to linkvertise
                     window.location.href = linkUrl + "?target=" + encodeURIComponent(targetUrl);
                 } else {
                     alert("An error occurred while generating the Linkvertise link.");
