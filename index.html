@@ -7,26 +7,33 @@
     <script>
         function redirectToLinkvertise(round) {
             if (round === 1) {
-                // Redirect from your website to Linkvertise
+                // Wait for 3 seconds
+                setTimeout(function () {
+                    redirectToLinkvertise(2);
+                }, 3000);
+            } else if (round === 2) {
+                // Redirect to Linkvertise
                 linkvertise(572754, { whitelist: [], blacklist: [""] }, function (result) {
                     if (result.success) {
                         var linkUrl = result.link.url;
-                        redirectToLinkvertise(2, linkUrl);
+                        redirectToLinkvertise(3, linkUrl);
                     } else {
                         alert("An error occurred while generating the Linkvertise link.");
                     }
                 });
-            } else if (round === 2) {
-                // Redirect from Linkvertise back to your website
-                var targetUrl = "https://tokyooverlord.github.io/ApoloGize.github.io/checkpoint.html";
-                redirectToLinkvertise(3, targetUrl);
             } else if (round === 3) {
-                // Redirect from your website to the final destination
-                var targetUrl = "https://pastebin.com/raw/etRR4dDi";
-                window.location.href = targetUrl;
+                // Redirect back to your website
+                setTimeout(function () {
+                    redirectToTargetPage();
+                }, 3000);
             }
         }
-        
+
+        function redirectToTargetPage() {
+            var targetUrl = "https://pastebin.com/raw/etRR4dDi";
+            window.location.href = targetUrl;
+        }
+
         // Start the redirect process
         redirectToLinkvertise(1);
     </script>
